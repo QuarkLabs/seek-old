@@ -3,7 +3,7 @@
         <div class="hero slide-up" style="background-image: url('img/profile-bg.jpg');">
             <div class="content">
                 <div class="avatar" style="background-image: url('img/daenerys.jpg');"></div>
-                <h3><a class="dark">User Name</a></h3>
+                <h3><a class="light">User Name</a></h3>
                 <h4><a class="dark">Developer</h4>
             </div>
         </div>
@@ -11,35 +11,87 @@
             <a ui-sref="app.activity" class="tab-item">
                 <i class="icon ion-arrow-graph-up-right"></i> Activity
             </a>
-            <a ui-sref="app.friends" class="tab-item">
-                <i class="icon ion-android-people"></i> Friends
+            <a ui-sref="app.map" class="tab-item">
+                <i class="icon ion-android-people"></i> Map
             </a>
             <a ui-sref="app.gallery" class="tab-item">
                 <i class="icon ion-ios-list"></i> Feedback
             </a>
         </div>
         <h4 class="content padding double-padding-x">Ask a Question</h4>
+<hr>
+       <div class="list">
+
+  <div class="item item-input-inset">
+    <label class="item-input-wrapper">
+      <input type="text" placeholder="Type here">
+    </label>
+    <button class="button button-small">
+      Submit
+    </button>
+  </div>
+
+</div>
+
+<hr>
+
+<center>
+<label> --- People Nearby --- </label>
+</center>
         <div class="list animate-fade-slide-in-right">
-            <a ui-sref="app.friends" class="item item-avatar item-icon-right">
-                <img src="img/jon-snow.jpg">
-                <h2>Jon Snow</h2>
-                <p>Da illest illegitimate</p>
+            <a ui-sref="app.map" class="item item-avatar item-icon-right">
+                <img src="img/sumedhe.jpg">
+                <h2>Sumedhe Dissanayake</h2>
+                <p>Expert on Photography, Music...</p>
+                <i class="icon ion-chatbubble muted"></i>
+            </a>
+
+           
+
+            <a ui-sref="app.map" class="item item-avatar item-icon-right">
+                <img src="img/oshan.jpg">
+                <h2>Oshan Mudannayake</h2>
+                <p>Expert on Android, Web Developing, PHP...</p>
+                <i class="icon ion-chatbubble muted"></i>
+            </a>
+
+            <a ui-sref="app.map" class="item item-avatar item-icon-right">
+                <img src="img/supul.jpg">
+                <h2>Supul Dulanka</h2>
+                <p>Expert on Electronics, Mechanics...</p>
+                <i class="icon ion-chatbubble muted"></i>
+            </a>
+
+            <a ui-sref="app.map" class="item item-avatar item-icon-right">
+                <img src="img/pramodya.jpg">
+                <h2>Pramodya Abaysinghe</h2>
+                <p>Expert on C, C++, Java...</p>
                 <i class="icon ion-chatbubble muted"></i>
             </a>
 
 
-            <a ui-sref="app.friends" class="item item-avatar item-icon-right">
-                <img src="img/sansa.jpg">
-                <h2>Sansa Stark</h2>
-                <p>&amp; Joffrey <strike>sitting</strike> sat in a tree</p>
-                <i class="icon ion-chatbubble muted"></i>
-            </a>
-            <a ui-sref="app.friends" class="item item-avatar item-icon-right">
-                <img src="img/tyrion.jpg">
-                <h2>Tyrion Lannister</h2>
-                <p>B.A.M.F. imp</p>
-                <i class="icon ion-chatbubble muted"></i>
-            </a>
         </div>
+
+        <ul class="list">
+
+  <li class="item item-toggle">
+     HTML5
+     <label class="toggle toggle-assertive">
+       <input type="checkbox">
+       <div class="track">
+         <div class="handle"></div>
+       </div>
+     </label>
+  </li>
+
+<div class="item range range-positive">
+    <i class="icon ion-ios-sunny-outline"></i>
+    <input type="range" name="volume" min="0" max="100" value="33">
+    <i class="icon ion-ios-sunny"></i>
+  </div>
+
+</ul>
+
+       
     </ion-content>
 </ion-view>
