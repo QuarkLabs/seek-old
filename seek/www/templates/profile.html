@@ -3,7 +3,7 @@
         <div class="hero slide-up" style="background-image: url('img/profile-bg.jpg');">
             <div class="content">
                 <div class="avatar" style="background-image: url('img/daenerys.jpg');"></div>
-                <h3><a class="dark">User Name</a></h3>
+                <h3><a class="light">User Name</a></h3>
                 <h4><a class="dark">Developer</h4>
             </div>
         </div>
@@ -19,14 +19,34 @@
             </a>
         </div>
         <h4 class="content padding double-padding-x">Ask a Question</h4>
+<hr>
+       <div class="list">
+
+  <div class="item item-input-inset">
+    <label class="item-input-wrapper">
+      <input type="text" placeholder="Email">
+    </label>
+    <button class="button button-small">
+      Submit
+    </button>
+  </div>
+
+</div>
+
+<hr>
+
+
         <div class="list animate-fade-slide-in-right">
             <a ui-sref="app.friends" class="item item-avatar item-icon-right">
+
+
                 <img src="img/jon-snow.jpg">
                 <h2>Jon Snow</h2>
                 <p>Da illest illegitimate</p>
                 <i class="icon ion-chatbubble muted"></i>
             </a>
 
+           
 
             <a ui-sref="app.friends" class="item item-avatar item-icon-right">
                 <img src="img/sansa.jpg">
@@ -41,5 +61,27 @@
                 <i class="icon ion-chatbubble muted"></i>
             </a>
         </div>
+
+        <ul class="list">
+
+  <li class="item item-toggle">
+     HTML5
+     <label class="toggle toggle-assertive">
+       <input type="checkbox">
+       <div class="track">
+         <div class="handle"></div>
+       </div>
+     </label>
+  </li>
+
+<div class="item range range-positive">
+    <i class="icon ion-ios-sunny-outline"></i>
+    <input type="range" name="volume" min="0" max="100" value="33">
+    <i class="icon ion-ios-sunny"></i>
+  </div>
+
+</ul>
+
+       
     </ion-content>
 </ion-view>
