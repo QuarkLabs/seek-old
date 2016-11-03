@@ -56,14 +56,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', 'io
     })
 
     .state('app.friends', {
-        url: '/friends',
+        url: '/map',
         views: {
             'menuContent': {
-                templateUrl: 'templates/friends.html',
+                templateUrl: 'templates/map.html',
                 controller: 'FriendsCtrl'
             },
             'fabContent': {
-                template: '<button id="fab-friends" class="button button-fab button-fab-top-left expanded button-energized-900 spin"><i class="icon ion-chatbubbles"></i></button>',
+                //~ template: '<button id="fab-friends" class="button button-fab button-fab-top-left expanded button-energized-900 spin"><i class="icon ion-chatbubbles"></i></button>',
                 controller: function ($timeout) {
                     $timeout(function () {
                         document.getElementById('fab-friends').classList.toggle('on');
