@@ -55,7 +55,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', 'io
         }
     })
 
-    .state('app.friends', {
+    .state('app.map', {
         url: '/map',
         views: {
             'menuContent': {
