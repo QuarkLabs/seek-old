@@ -37,12 +37,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', 'io
         controller: 'AppCtrl'
     })
 
-    .state('app.activity', {
-        url: '/activity',
+    .state('app.questions', {
+        url: '/questions',
         views: {
             'menuContent': {
-                templateUrl: 'templates/activity.html',
-                controller: 'ActivityCtrl'
+                templateUrl: 'templates/questions.html',
+                controller: 'QuestionsCtrl'
             },
             'fabContent': {
                 template: '<button id="fab-activity" class="button button-fab button-fab-top-right expanded button-energized-900 flap"><i class="icon ion-paper-airplane"></i></button>',
@@ -73,7 +73,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', 'io
         }
     })
 
-    .state('app.gallery', {
+    .state('app.galleryz', {
         url: '/gallery',
         views: {
             'menuContent': {

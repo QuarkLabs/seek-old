@@ -114,39 +114,39 @@ angular.module('starter.controllers', [])
     ionicMaterialInk.displayEffect();
 })
 
-.controller('MapCtrl', ['$scope','$firebase','$ionicPopup', function($scope,$firebase,$ionicPopup) {
+//~ .controller('MapCtrl', ['$scope','$firebase','$ionicPopup', function($scope,$firebase,$ionicPopup) {
 
-	$scope.user = {};
+	//~ $scope.user = {};
 
-	$scope.showAlert = function() {
-	    $ionicPopup.alert({
-	        title: 'iMapApp',
-	        template: 'Your location has been saved!!'
-	    });
-	};
+	//~ $scope.showAlert = function() {
+	    //~ $ionicPopup.alert({
+	        //~ title: 'iMapApp',
+	        //~ template: 'Your location has been saved!!'
+	    //~ });
+	//~ };
 
-	$scope.saveDetails = function(){
-	    var lat = $scope.user.latitude;
-	    var lgt = $scope.user.longitude;
-	    var des = $scope.user.desc;
+	//~ $scope.saveDetails = function(){
+	    //~ var lat = $scope.user.latitude;
+	    //~ var lgt = $scope.user.longitude;
+	    //~ var des = $scope.user.desc;
 
-	    var firebaseObj = new Firebase("https://blistering-heat-2473.firebaseio.com/MapDetails");
-	    var fb = $firebase(firebaseObj);
+	    //~ var firebaseObj = new Firebase("https://blistering-heat-2473.firebaseio.com/MapDetails");
+	    //~ var fb = $firebase(firebaseObj);
 
-	    fb.$push({
-		    latitude: lat,
-		    longitude: lgt,
-		    description: des
-		}).then(function(ref) {
-		    $scope.user = {};
-		    $scope.showAlert();
-		}, function(error) {
-		    console.log("Error:", error);
-		});
+	    //~ fb.$push({
+		    //~ latitude: lat,
+		    //~ longitude: lgt,
+		    //~ description: des
+		//~ }).then(function(ref) {
+		    //~ $scope.user = {};
+		    //~ $scope.showAlert();
+		//~ }, function(error) {
+		    //~ console.log("Error:", error);
+		//~ });
 
-    // Code to write to Firebase will be here
-  	}
-}])
+    //~ // Code to write to Firebase will be here
+  	//~ }
+//~ }])
 
 .directive('map', function() {
     return {
@@ -175,6 +175,41 @@ angular.module('starter.controllers', [])
 		    scope.$parent.user.longitude = evt.latLng.lng();
 		    scope.$apply();
 		  });
+
+
+
+    var locations = [
+      ['Sumedhe Dissanayake', 6.903186, 79.862185, 4, '../img/sumedhe_icon.png'],
+      ['Pramodya Abeysighe', 6.901695, 79.861659, 5, '../img/pramodya_icon.png'],
+      ['Oshan Ivantha', 6.903662, 79.858868, 3, '../img/oshan_icon.png'],
+      ['Supul Dulanka', 6.901979, 79.859775, 2, '../img/supul_icon.png'],
+      ['You', 6.902230, 79.861323, 1],
+    ];
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 15,
+      center: new google.maps.LatLng(6.902230, 79.861323),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    var infowindow = new google.maps.InfoWindow();
+
+    var marker, i;
+
+    for (i = 0; i < locations.length; i++) { 
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        icon: locations[i][4],
+        map: map
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    }
 
 
         }
@@ -208,7 +243,7 @@ angular.module('starter.controllers', [])
     ionicMaterialInk.displayEffect();
 })
 
-.controller('ActivityCtrl', function($scope, $stateParams, $timeout, ionicMaterialMotion, ionicMaterialInk) {
+.controller('QuestionsCtrl', function($scope, $stateParams, $timeout, ionicMaterialMotion, ionicMaterialInk) {
     $scope.$parent.showHeader();
     $scope.$parent.clearFabs();
     $scope.isExpanded = true;
