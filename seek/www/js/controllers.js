@@ -4,7 +4,6 @@
 angular.module('starter.controllers', [])
 
 
-
 .controller('AppCtrl', function($scope, $ionicModal, $ionicPopover, $timeout) {
     // Form data for the login modal
     $scope.loginData = {};
@@ -119,23 +118,23 @@ angular.module('starter.controllers', [])
 })
 
 .controller('MapCtrl', function($scope, $ionicPopup) {
-$scope.showConfirm = function() {
-   var confirmPopup = $ionicPopup.confirm({
-     title: 'Meet',
-     template: 'Are you sure you want to meet this person?',
-     cancelText: 'No',
-     okText: 'Yes'
-   });
+//~ $scope.showConfirm = function() {
+   //~ var confirmPopup = $ionicPopup.confirm({
+     //~ title: 'Meet',
+     //~ template: 'Are you sure you want to meet this person?',
+     //~ cancelText: 'No',
+     //~ okText: 'Yes'
+   //~ });
 
  
-   confirmPopup.then(function(res) {
-     if(res) {
-       console.log('Request sent!');
-     } else {
-       console.log('Meeting canceled !');
-     }
-   });
- };
+   //~ confirmPopup.then(function(res) {
+     //~ if(res) {
+       //~ console.log('Request sent!');
+     //~ } else {
+       //~ console.log('Meeting canceled !');
+     //~ }
+   //~ });
+ //~ };
  
 })
 
@@ -293,8 +292,27 @@ $scope.showConfirm = function() {
     ionicMaterialMotion.fadeSlideInRight({
         selector: '.animate-fade-slide-in .item'
     });
-
 })
+
+.controller('DashboardCtrl', function($scope, $stateParams, $timeout, ionicMaterialInk, ionicMaterialMotion) {
+    $scope.$parent.showHeader();
+    $scope.$parent.clearFabs();
+    $scope.isExpanded = true;
+    $scope.$parent.setExpanded(true);
+    $scope.$parent.setHeaderFab(false);
+
+    // Activate ink for controller
+    ionicMaterialInk.displayEffect();
+
+    ionicMaterialMotion.pushDown({
+        selector: '.push-down'
+    });
+    ionicMaterialMotion.fadeSlideInRight({
+        selector: '.animate-fade-slide-in .item'
+    });
+})
+
+
 
 
 
