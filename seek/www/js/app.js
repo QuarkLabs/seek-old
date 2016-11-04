@@ -55,12 +55,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', 'io
         }
     })
 
+
     .state('app.map', {
         url: '/map',
         views: {
             'menuContent': {
                 templateUrl: 'templates/map.html',
-                controller: 'FriendsCtrl'
+                controller: 'MapCtrl'
             },
             'fabContent': {
                 //~ template: '<button id="fab-friends" class="button button-fab button-fab-top-left expanded button-energized-900 spin"><i class="icon ion-chatbubbles"></i></button>',
@@ -73,7 +74,26 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', 'io
         }
     })
 
-    .state('app.galleryz', {
+    .state('app.confirmation', {
+        url: '/confirmation',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/confirmation.html',
+                controller: 'MyCtrl'
+            },
+            'fabContent': {
+                template: '<button id="fab-gallery" class="button button-fab button-fab-top-right expanded button-energized-900 drop"><i class="icon ion-heart"></i></button>',
+                controller: function ($timeout) {
+                    $timeout(function () {
+                        document.getElementById('fab-gallery').classList.toggle('on');
+                    }, 600);
+                }
+            }
+        }
+    })
+
+
+    .state('app.gallery', {
         url: '/gallery',
         views: {
             'menuContent': {

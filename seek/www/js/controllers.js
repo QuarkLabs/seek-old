@@ -3,6 +3,8 @@
 
 angular.module('starter.controllers', [])
 
+
+
 .controller('AppCtrl', function($scope, $ionicModal, $ionicPopover, $timeout) {
     // Form data for the login modal
     $scope.loginData = {};
@@ -95,7 +97,7 @@ angular.module('starter.controllers', [])
     ionicMaterialInk.displayEffect();
 })
 
-.controller('FriendsCtrl', function($scope, $stateParams, $timeout, ionicMaterialInk, ionicMaterialMotion) {
+.controller('MapCtrl', function($scope, $stateParams, $timeout, ionicMaterialInk, ionicMaterialMotion) {
     // Set Header
     $scope.$parent.showHeader();
     $scope.$parent.clearFabs();
@@ -107,46 +109,37 @@ angular.module('starter.controllers', [])
         $scope.$parent.setExpanded(true);
     }, 300);
 
+
     // Set Motion
     ionicMaterialMotion.fadeSlideInRight();
 
     // Set Ink
     ionicMaterialInk.displayEffect();
+
 })
 
-//~ .controller('MapCtrl', ['$scope','$firebase','$ionicPopup', function($scope,$firebase,$ionicPopup) {
+.controller('MapCtrl', function($scope, $ionicPopup) {
+$scope.showConfirm = function() {
+   var confirmPopup = $ionicPopup.confirm({
+     title: 'Meet',
+     template: 'Are you sure you want to meet this person?',
+     cancelText: 'No',
+     okText: 'Yes'
+   });
 
-	//~ $scope.user = {};
+ 
+   confirmPopup.then(function(res) {
+     if(res) {
+       console.log('Request sent!');
+     } else {
+       console.log('Meeting canceled !');
+     }
+   });
+ };
+ 
+})
 
-	//~ $scope.showAlert = function() {
-	    //~ $ionicPopup.alert({
-	        //~ title: 'iMapApp',
-	        //~ template: 'Your location has been saved!!'
-	    //~ });
-	//~ };
 
-	//~ $scope.saveDetails = function(){
-	    //~ var lat = $scope.user.latitude;
-	    //~ var lgt = $scope.user.longitude;
-	    //~ var des = $scope.user.desc;
-
-	    //~ var firebaseObj = new Firebase("https://blistering-heat-2473.firebaseio.com/MapDetails");
-	    //~ var fb = $firebase(firebaseObj);
-
-	    //~ fb.$push({
-		    //~ latitude: lat,
-		    //~ longitude: lgt,
-		    //~ description: des
-		//~ }).then(function(ref) {
-		    //~ $scope.user = {};
-		    //~ $scope.showAlert();
-		//~ }, function(error) {
-		    //~ console.log("Error:", error);
-		//~ });
-
-    //~ // Code to write to Firebase will be here
-  	//~ }
-//~ }])
 
 .directive('map', function() {
     return {
@@ -177,7 +170,25 @@ angular.module('starter.controllers', [])
 		  });
 
 
+//~ showConfirm = function() {
+   //~ var confirmPopup = $ionicPopup.confirm({
+     //~ title: 'Meet',
+     //~ template: 'Are you sure you want to meet this person?',
+     //~ cancelText: 'No',
+     //~ okText: 'Yes'
+   //~ });
 
+ 
+   //~ confirmPopup.then(function(res) {
+     //~ if(res) {
+       //~ console.log('Request sent!');
+     //~ } else {
+       //~ console.log('Meeting canceled !');
+     //~ }
+   //~ });
+ //~ };
+
+ 
     var locations = [
       ['Sumedhe Dissanayake', 6.903186, 79.862185, 4, '../img/sumedhe_icon.png'],
       ['Pramodya Abeysighe', 6.901695, 79.861659, 5, '../img/pramodya_icon.png'],
@@ -196,12 +207,15 @@ angular.module('starter.controllers', [])
 
     var marker, i;
 
+
+
     for (i = 0; i < locations.length; i++) { 
       marker = new google.maps.Marker({
         position: new google.maps.LatLng(locations[i][1], locations[i][2]),
         icon: locations[i][4],
         map: map
-      });
+      })
+      ;
 
       google.maps.event.addListener(marker, 'click', (function(marker, i) {
         return function() {
@@ -214,6 +228,9 @@ angular.module('starter.controllers', [])
 
         }
     };
+
+
+ 
 })
 
 ////
@@ -278,6 +295,10 @@ angular.module('starter.controllers', [])
     });
 
 })
+
+
+
+
 
 
 .controller('MainCtrl', function($scope, $ionicPopup) {
