@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,7 +33,8 @@ import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import java.util.HashMap;
+import static com.voidx.seek.Session.lastCurrentLocation;
+import static com.voidx.seek.Session.userHashMap;
 
 public class MapFragment extends Fragment implements OnMapReadyCallback {
     private OnFragmentInteractionListener mListener;
@@ -45,12 +47,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 
     private LocationManager locationManager;
     private LocationListener locationListener;
-
-    private Location lastCurrentLocation;
-    private HashMap<Integer, User> userHashMap = new HashMap<>();
-
-
-    private boolean isFirstTime = true;
 
     public MapFragment() {
         // Required empty public constructor
@@ -66,10 +62,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        lastCurrentLocation = new Location("");
-        lastCurrentLocation.setLatitude(0.0);
-        lastCurrentLocation.setLongitude(0.0);
     }
 
     @Override
@@ -101,39 +93,20 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 
                 LatLng currentLatLng = new LatLng(lastCurrentLocation.getLatitude(), lastCurrentLocation.getLongitude());
 
-                if(isFirstTime){
-                    User oshaniUser = new User(1, "Oshani", "", "Weerakoon", currentLatLng.latitude + 0.0025, currentLatLng.longitude + 0.0039, "");
-                    User sumedheUser = new User(2, "Sumedhe", "", "Dissanayake", currentLatLng.latitude + 0.0004, currentLatLng.longitude + 0.0028, "");
-                    User jinadiUser = new User(3, "Jinadi", "", "Yasiruka", currentLatLng.latitude + 0.0009, currentLatLng.longitude + 0.0050, "");
-                    User kavindaUser = new User(4, "Kavinda", "", "Niroshan", currentLatLng.latitude + 0.0051, currentLatLng.longitude + 0.0005, "");
-                    User supulUser = new User(5, "Supul", "", "Dulanka", currentLatLng.latitude - 0.0030, currentLatLng.longitude + 0.0004, "");
+                LatLngBounds.Builder builder = new LatLngBounds.Builder();
 
-                    addUserMarker(oshaniUser);
-                    addUserMarker(sumedheUser);
-                    addUserMarker(jinadiUser);
-                    addUserMarker(kavindaUser);
-                    addUserMarker(supulUser);
-
-                    userHashMap.put(oshaniUser.id, oshaniUser);
-                    userHashMap.put(sumedheUser.id, sumedheUser);
-                    userHashMap.put(jinadiUser.id, jinadiUser);
-                    userHashMap.put(kavindaUser.id, kavindaUser);
-                    userHashMap.put(supulUser.id, supulUser);
-
-                    LatLngBounds.Builder builder = new LatLngBounds.Builder();
-
-                    builder.include(currentLatLng);
-                    for(User user: userHashMap.values()) {
-                        builder.include(new LatLng(user.latitude, user.longitude));
-                    }
-                    LatLngBounds bounds = builder.build();
-
-                    mGoogleMap.animateCamera(CameraUpdateFactory.newLatLngBounds(bounds, 350));
-                    isFirstTime = false;
-                }else{
-                    CameraPosition cameraPosition = CameraPosition.builder().target(currentLatLng).zoom(17).bearing(0).tilt(4).build();
-                    mGoogleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+                builder.include(currentLatLng);
+                for(User user: userHashMap.values()) {
+                    builder.include(new LatLng(user.latitude, user.longitude));
+                    addUserMarker(user);
+                    Log.d("user-----", user.firstName);
                 }
+                LatLngBounds bounds = builder.build();
+
+                mGoogleMap.animateCamera(CameraUpdateFactory.newLatLngBounds(bounds, 350));
+
+//                CameraPosition cameraPosition = CameraPosition.builder().target(currentLatLng).zoom(17).bearing(0).tilt(4).build();
+//                mGoogleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
             }
 
             public void onStatusChanged(String provider, int status, Bundle extras) {
@@ -246,9 +219,9 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         Bitmap croppedProfileBitmap = ImageUtil.cropAsCircle(resizedProfileBitmap);
         canvas1.drawBitmap(croppedProfileBitmap, 0, 0, color);
 
-        LatLng marketLatlng = new LatLng(user.latitude, user.longitude);
+        LatLng markerLatLng = new LatLng(user.latitude, user.longitude);
         MarkerOptions markerOptions = new MarkerOptions()
-                .position(marketLatlng)
+                .position(markerLatLng)
                 .title(user.firstName + " " + user.lastName)
 //                .snippet(mainSubject + "\n" + distance + " km")
                 .icon(BitmapDescriptorFactory.fromBitmap(bmp))
