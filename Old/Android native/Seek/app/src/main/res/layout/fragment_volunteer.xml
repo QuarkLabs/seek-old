@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.voidx.seek.VolunteerFragment">
+    tools:context="com.voidx.seek.VolunteerFragment"
+    android:background="@drawable/background">
 
 
     <ScrollView
@@ -47,11 +48,11 @@
 
             <co.lujun.androidtagview.TagContainerLayout
                 android:id="@+id/subject_tag_view"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="96dp"
                 android:layout_marginEnd="24dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="16dp"
                 android:padding="10dp"
