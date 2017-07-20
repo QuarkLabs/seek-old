@@ -42,10 +42,10 @@ export class ConferenceApp {
   // the left menu only works after login
   // the login page disables the left menu
   appPages: PageInterface[] = [
-    { title: 'Schedule', name: 'TabsPage', component: TabsPage, tabComponent: SchedulePage, index: 0, icon: 'calendar' },
-    { title: 'Speakers', name: 'TabsPage', component: TabsPage, tabComponent: SpeakerListPage, index: 1, icon: 'contacts' },
-    { title: 'Map', name: 'TabsPage', component: TabsPage, tabComponent: MapPage, index: 2, icon: 'map' },
-    { title: 'About', name: 'TabsPage', component: TabsPage, tabComponent: AboutPage, index: 3, icon: 'information-circle' }
+    { title: 'Search', name: 'TabsPage', component: TabsPage, tabComponent: SchedulePage, index: 0, icon: 'search' },
+    { title: 'Map', name: 'TabsPage', component: TabsPage, tabComponent: MapPage, index: 1, icon: 'map' },
+    { title: 'Inbox', name: 'TabsPage', component: TabsPage, tabComponent: SpeakerListPage, index: 2, icon: 'mail' },
+    { title: 'Volunteer', name: 'TabsPage', component: TabsPage, tabComponent: AboutPage, index: 3, icon: 'people' }
   ];
   loggedInPages: PageInterface[] = [
     { title: 'Account', name: 'AccountPage', component: AccountPage, icon: 'person' },
