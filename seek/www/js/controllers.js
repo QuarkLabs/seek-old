@@ -1,6 +1,6 @@
-var app = angular.module('app.controllers', [])
+angular.module('app.controllers', [])
 
-app.run(function($rootScope) {
+.run(function($rootScope) {
 
     $rootScope.collection1 = {};
     $rootScope.collection1.item1 = "Person 1";
@@ -29,13 +29,14 @@ app.run(function($rootScope) {
         // You can include any angular dependencies as parameters for this function
         // TIP: Access Route Parameters for your page via $stateParams.parameterName
         function ($scope, $stateParams) {
-            $scope.myName = "Aaron Saunders"
 
-            $scope.fullName = {
-                "first" : "Aaron",
-                "last"  : "Saunders"
+            // !Default Data
+            $scope.buttonText = "Click Here";
+
+            // !Function 'getData()'
+            $scope.getData = function() {
+                $scope.buttonText = "You clicked me!";
             };
-
         }])
 
     .controller('profileCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
