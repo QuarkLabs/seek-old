@@ -1,0 +1,12 @@
+{
+  "name": "Seek",
+  "app_id": "",
+  "type": "ionic1",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "scss/**/*"
+  ]
+}
