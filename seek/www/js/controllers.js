@@ -34,10 +34,9 @@ angular.module('app.controllers', [])
             $scope.inbox = [
                 { senderName:'Pramodya Abeysinghe', senderId:12, message:'Asking for help: How to make a android app?', timestamp:'2017.07.23 10:52'},
                 { senderName:'Oshan Mudannayake', senderId:5, message:'Asking for help: How publish a web app?', timestamp:'2017.07.23 10:52'},
-                { senderName:'Sumedhe Dissanayake', senderId:2, message:'Asking for help: What is dynamic programming?', timestamp:'2017.07.23 10:52'}
+                { senderName:'Sumedhe Dissanayake', senderId:2, message:'Asking for help: What is dynamic programming?', timestamp:'2017.07.23 10:52'},
             ]
 
-            };
         }])
 
     .controller('profileCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
