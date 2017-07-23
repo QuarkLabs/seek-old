@@ -1,12 +1,12 @@
 <ion-view title="Inbox" id="page4">
   <ion-content padding="true" class="has-header">
     <ion-list id="inbox-list2">
-      <ion-item class="item-avatar item-icon-right" ng-repeat="msg in inbox" id="inbox-list-item9">
+      <ion-item class="item-icon-right" ng-repeat="msg in inbox" id="inbox-list-item9">
         <h2> {{ msg.senderName }} </h2>
-        <p> {{ msg.message }} </p>
+        <p> {{ msg.message }}</p>
+        <p class="timestamp"> {{ msg.timestamp }} </p>
         <i class="icon ion-android-star-outline"></i>
       </ion-item>
     </ion-list>
-
   </ion-content>
 </ion-view>
