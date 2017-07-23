@@ -1,24 +1,49 @@
+<style>
+  .chip {
+    display: inline-block;
+    padding: 0 25px;
+    height: 50px;
+    font-size: 16px;
+    line-height: 50px;
+    border-radius: 25px;
+    background-color: #f1f1f1;
+  }
+
+  .chip img {
+    float: left;
+    margin: 0 10px 0 -25px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+  }
+</style>
+
 <ion-view title="Search" id="page2">
   <ion-content padding="true" class="has-header">
-    <form id="search-form3" class="list">
+    <div id="search-form3" class="list">
       <label class="item item-input" id="search-search1">
         <i class="icon ion-search placeholder-icon"></i>
         <input type="search" placeholder="What do you want to know? ">
       </label>
-    </form>
+    </div>
     <div id="search-container2" class="row">
-      <div class="col-8">
+      <div class="col col-80">
         <label class="item item-input" id="search-input2">
           <input type="text" placeholder="Tag">
+
         </label>
       </div>
-      <div class="col-4">
+      <div class="col"></div>
+      <div class="col">
         <button id="search-button2" class="button button-positive icon ion-android-add"></button>
       </div>
-      <form id="search-form4" class="list">
-
-      </form>
     </div>
-    <button id="search-button1" class="button button-positive button-block">Search</button>
+    <div id="tag-list">
+      <div class="chip" ng-repeat="tag in searchTag">
+        {{tag.field}}
+        <span class="" onclick="this.parentElement.style.display='none'">&times;</span>
+      </div>
+    </div>
+    <button id="search-button1" class="button button-positive button-block ion-search "> Search</button>
   </ion-content>
 </ion-view>
