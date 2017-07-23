@@ -1,25 +1,12 @@
-]<ion-view title="Inbox" id="page4">
+<ion-view title="Inbox" id="page4">
   <ion-content padding="true" class="has-header">
     <ion-list id="inbox-list2">
-      <ion-item class="item-avatar item-icon-right" id="inbox-list-item9">
-        <h2> {{ collection1.item1 }} </h2>
-        <p>Some questions asked by {{ collection1.item1}} </p>
-        <i class="icon ion-android-star-outline"></i>
-      </ion-item>
-      <ion-item class="item-avatar item-icon-right" id="inbox-list-item16">
-        <h2> {{ collection1.item1 }} </h2>
-        <p>Random question from {{ collection1.item2 }} </p>
-        <i class="icon ion-android-star-outline"></i>
-      </ion-item>
-      <ion-item class="item-avatar item-icon-right" id="inbox-list-item17">
-        <h2> {{ collection1.item2 }} </h2>
-        <p>C wants to know about Machine Learning </p>
+      <ion-item class="item-avatar item-icon-right" ng-repeat="msg in inbox" id="inbox-list-item9">
+        <h2> {{ msg.senderName }} </h2>
+        <p> {{ msg.message }} </p>
         <i class="icon ion-android-star-outline"></i>
       </ion-item>
     </ion-list>
 
-   <!--Test Button to Call function -->
-   <button ng-click="getData()" class="button button-full button-positive"> {{ buttonText }} </button>
-  
   </ion-content>
 </ion-view>

@@ -1,14 +1,15 @@
 angular.module('app.controllers', [])
 
-.run(function($rootScope) {
+    .run(function($rootScope) {
 
-    $rootScope.collection1 = {};
-    $rootScope.collection1.item1 = "Person 1";
-    $rootScope.collection1.item2 = "Person 2";
+        $rootScope.collection1 = {};
+        $rootScope.collection1.item1 = "Person 1";
+        $rootScope.collection1.item2 = "Person 2";
 
     $rootScope.searchTag = [{field:"Machine Learning"},{field:"AI"}];
 
-})
+}
+    )
 
     .controller('addTag', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
         // You can include any angular dependencies as parameters for this function
@@ -30,6 +31,7 @@ angular.module('app.controllers', [])
 
        // $scope.searchTag = [{field:"Machine Learning"},{field:"AI"}];
 
+            $scope.searchTag = [{field:"Machine Learning"},{field:"AI"}];
 
         }])
 
@@ -46,13 +48,12 @@ angular.module('app.controllers', [])
         // TIP: Access Route Parameters for your page via $stateParams.parameterName
         function ($scope, $stateParams) {
 
-            // !Default Data
-            $scope.buttonText = "Click Here";
+            $scope.inbox = [
+                { senderName:'Pramodya Abeysinghe', senderId:12, message:'Asking for help: How to make a android app?', timestamp:'2017.07.23 10:52'},
+                { senderName:'Oshan Mudannayake', senderId:5, message:'Asking for help: How publish a web app?', timestamp:'2017.07.23 10:52'},
+                { senderName:'Sumedhe Dissanayake', senderId:2, message:'Asking for help: What is dynamic programming?', timestamp:'2017.07.23 10:52'},
+            ]
 
-            // !Function 'getData()'
-            $scope.getData = function() {
-                $scope.buttonText = "You clicked me!";
-            };
         }])
 
     .controller('profileCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
