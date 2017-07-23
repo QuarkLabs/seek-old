@@ -29,13 +29,12 @@
     <div id="search-container2" class="row">
       <div class="col col-80">
         <label class="item item-input" id="search-input2">
-          <input type="text" placeholder="Tag">
-
+          <input type="text" placeholder="Tag" ng-model="newSearchTag">
         </label>
       </div>
       <div class="col"></div>
-      <div class="col">
-        <button id="search-button2" class="button button-positive icon ion-android-add"></button>
+      <div class="col" ng-controller="addTag">
+        <button id="search-button2" class="button button-positive icon ion-android-add" ng-click="addTagFunc()"></button>
       </div>
     </div>
     <div id="tag-list">
